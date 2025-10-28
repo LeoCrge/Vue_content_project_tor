@@ -26,32 +26,25 @@
         methods: {
           selectItem(i) {
             this.currentIndex = i;
-             // If the movie object provides a textColor, use it for the footer
              const color = this.allItems[i] && this.allItems[i].textColor;
-             this.footerColor = color || '#1a5a96';
-             this.footerTextColor = this.contrastColor(this.footerColor);
             const el = document.querySelector('.detail-view');
             if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
           },
           closeDetail() {
             this.currentIndex = null;
-             this.footerColor = '#1a5a96';
-             this.footerTextColor = '#fff';
+             
           },
           nextItem() {
             if (this.allItems.length === 0 || this.currentIndex === null) return;
             this.currentIndex = (this.currentIndex + 1) % this.allItems.length;
             const c = this.allItems[this.currentIndex] && this.allItems[this.currentIndex].textColor;
-            this.footerColor = c || '#1a5a96';
-            this.footerTextColor = this.contrastColor(this.footerColor);
+            
           },
           prevItem() {
             if (this.allItems.length === 0 || this.currentIndex === null) return;
             this.currentIndex = (this.currentIndex - 1 + this.allItems.length) % this.allItems.length;
             const c = this.allItems[this.currentIndex] && this.allItems[this.currentIndex].textColor;
-            this.footerColor = c || '#1a5a96';
-            this.footerTextColor = this.contrastColor(this.footerColor);
-          },
+            },
 
           youtubeEmbed(trailer) {
             if (!trailer) return '';
@@ -66,19 +59,7 @@
             return 'https://www.youtube.com/embed/' + trailer;
           }
         ,
-          // Return either '#000' or '#fff' depending on background luminance
-          contrastColor(hex) {
-            if (!hex) return '#fff';
-            // normalize
-            const h = hex.replace('#', '');
-            const bigint = parseInt(h.length === 3 ? h.split('').map(c => c + c).join('') : h, 16);
-            const r = (bigint >> 16) & 255;
-            const g = (bigint >> 8) & 255;
-            const b = bigint & 255;
-            // relative luminance
-            const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
-            return luminance > 0.6 ? '#000' : '#fff';
-          }
+          
         }
       });
 
@@ -136,7 +117,7 @@
       </div>
     </div>
 
-    <footer id="site-footer" v-if="true">
+    <footer>
       <div class="footer-inner">
         <span>A project by Léo Carouge</span>
       </div>
