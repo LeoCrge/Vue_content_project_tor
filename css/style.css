@@ -115,6 +115,7 @@ body {
 
 .navigation button:first-child {
   background-color: #6c757d;
+  justify-content: center;
 }
 
 .navigation button:first-child:hover {
@@ -185,7 +186,7 @@ body {
 }
 
 .detail-info {
-  background: #fff;
+  background: #bd6f16d3;
   padding: 1rem 1.25rem;
   border-radius: 10px;
   max-width: 760px;
@@ -195,7 +196,7 @@ body {
 
 .detail-info h2 {
   margin: 0 0 0.5rem 0;
-  color: #1a5a96;
+  color: #0056b3;
   text-align: center;
 }
 
