@@ -15,9 +15,7 @@
           return {
             allItems: window.topics || [],
             currentIndex: null,
-            // footer color defaults to the theme color used for titles
-            footerColor: '#1a5a96',
-            footerTextColor: '#fff'
+            
           }
         },
         computed: {
@@ -31,14 +29,12 @@
              // If the movie object provides a textColor, use it for the footer
              const color = this.allItems[i] && this.allItems[i].textColor;
              this.footerColor = color || '#1a5a96';
-             // compute readable text color for the footer
              this.footerTextColor = this.contrastColor(this.footerColor);
             const el = document.querySelector('.detail-view');
             if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
           },
           closeDetail() {
             this.currentIndex = null;
-             // reset footer color when returning to posters
              this.footerColor = '#1a5a96';
              this.footerTextColor = '#fff';
           },
@@ -140,10 +136,9 @@
       </div>
     </div>
 
-    <!-- Footer: stays at bottom and takes the current footerColor -->
-    <footer id="site-footer" :style="{ backgroundColor: footerColor }" v-if="true">
+    <footer id="site-footer" v-if="true">
       <div class="footer-inner">
-        <span :style="{ color: footerTextColor, fontWeight: 600 }">Cinema Explorer</span>
+        <span>A project by Léo Carouge</span>
       </div>
     </footer>
 

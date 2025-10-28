@@ -23,7 +23,7 @@ window.topics = [
     {   
         title:"Sinners",
         desc:"Trying to leave their troubled lives behind, twin brothers return to their hometown to start again, only to discover that an even greater evil is waiting to welcome them back.",
-        img:"../assets/sinners.png",
+        img:"assets/sinners.png",
         infoUrl: "https://en.wikipedia.org/wiki/Sinners_(2025_film)",
         trailer: "https://www.youtube.com/watch?v=bKGxHflevuk",
 
